@@ -14,7 +14,7 @@ export function createSaveButton(
     saveButton.addEventListener("click", () => {
         const titleText = noteTitleInput.value.trim();
         const bodyText = noteBodyInput.value.trim();
-        if (titleText && bodyText) {
+        if (titleText || bodyText) {
             addNoteToList(titleText, bodyText, notesContainer);
             noteInputContainer.classList.add("hidden");
             noteTitleInput.value = "";
