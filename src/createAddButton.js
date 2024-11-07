@@ -8,8 +8,7 @@ export function createAddButton() {
         "fixed bottom-6 right-6 bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center hover:bg-blue-600 transition duration-200 transform hover:scale-105";
 
     const dropdownMenu = document.createElement("div");
-    dropdownMenu.className =
-        "hidden flex-col absolute bottom-20 right-6 bg-white rounded-3xl shadow-lg z-10 w-32";
+    dropdownMenu.className = "hidden fixed bottom-20 right-6 bg-white rounded-3xl shadow-lg w-32";
 
     const hideDropdown = () => dropdownMenu.classList.add("hidden");
 
