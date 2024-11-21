@@ -1,5 +1,5 @@
-import { exportNotes } from "./exportNotes.js";
-import { importNotes } from "./importNotes.js";
+import { backupNotes } from "./backupNotes.js";
+import { restoreNotes } from "./restoreNotes.js";
 
 export function createAddButton() {
     const addButton = document.createElement("button");
@@ -21,23 +21,23 @@ export function createAddButton() {
         hideDropdown();
     };
 
-    const importButton = document.createElement("button");
-    importButton.innerText = "Import";
-    importButton.className = "p-4 w-full hover:bg-gray-100 rounded-3xl";
-    importButton.onclick = () => {
+    const backupButton = document.createElement("button");
+    backupButton.innerText = "Backup";
+    backupButton.className = "p-4 w-full hover:bg-gray-100 rounded-3xl";
+    backupButton.onclick = () => {
+        backupNotes();
+        hideDropdown();
+    };
+
+    const restoreButton = document.createElement("button");
+    restoreButton.innerText = "Restore";
+    restoreButton.className = "p-4 w-full hover:bg-gray-100 rounded-3xl";
+    restoreButton.onclick = () => {
         fileInput.click();
         hideDropdown();
     };
 
-    const exportButton = document.createElement("button");
-    exportButton.innerText = "Export";
-    exportButton.className = "p-4 w-full hover:bg-gray-100 rounded-3xl";
-    exportButton.onclick = () => {
-        exportNotes();
-        hideDropdown();
-    };
-
-    dropdownMenu.append(newButton, importButton, exportButton);
+    dropdownMenu.append(newButton, backupButton, restoreButton);
 
     const container = document.createElement("div");
     container.className = "relative";
@@ -56,7 +56,7 @@ export function createAddButton() {
     fileInput.onchange = (event) => {
         const file = event.target.files[0];
         if (file) {
-            importNotes(file);
+            restoreNotes(file);
         }
     };
     container.appendChild(fileInput);

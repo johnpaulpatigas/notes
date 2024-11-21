@@ -1,4 +1,4 @@
-export function exportNotes() {
+export function backupNotes() {
     const notes = JSON.parse(localStorage.getItem("notes")) || [];
     const json = JSON.stringify(notes, null, 2);
     const blob = new Blob([json], { type: "application/json" });

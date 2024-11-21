@@ -1,7 +1,7 @@
 import { addNoteToList } from "./addNoteToList.js";
 import { saveNotes } from "./saveNotes.js";
 
-export function importNotes(file) {
+export function restoreNotes(file) {
     const reader = new FileReader();
     reader.onload = (event) => {
         try {
